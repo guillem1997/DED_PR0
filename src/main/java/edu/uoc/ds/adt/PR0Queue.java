@@ -6,9 +6,9 @@ import edu.uoc.ds.adt.sequential.QueueArrayImpl;
 
 public class PR0Queue {
 
-    public final int CAPACITY = 9;
+    public final int CAPACITY = 10;
 
-    private Queue<Character> queue;
+    private Queue<Integer> queue;
 
     public PR0Queue() {
         newQueue();
@@ -18,8 +18,20 @@ public class PR0Queue {
     }
 
     public void fillQueue() {
-        for (char c = '0'; c < '9'; c++) {
-            queue.add(Character.valueOf(c));
+        int c = 2;
+        while (queue.size() < 10){
+            int counter = 0;
+            int n = 1;
+            while (n <= c){
+                if(c%n == 0){
+                    counter = counter +1;
+                }
+                n++;
+            }
+            if (counter == 2){
+                queue.add(c);
+            }
+            c++;
         }
     }
 
@@ -33,7 +45,7 @@ public class PR0Queue {
         return sb.toString();
     }
 
-    public Queue<Character> getQueue() {
+    public Queue<Integer> getQueue() {
         return this.queue;
     }
 
